@@ -1,0 +1,38 @@
+<p id = "topimage"><%= image_tag '/top.png' %></p>
+
+<nav id="top_menu">
+  <ul class="cf">
+    <li>
+    <%= link_to image_tag("/MainBtn1.png"), musician_index_path %>
+    </li>
+    <li>
+    <%= link_to image_tag("/MainBtn2.png"), event_index_path %>
+    </li>
+    <li>
+    <%= link_to image_tag("/MainBtn3.png"), past_event_index_path %>
+    </li>
+  </ul>
+</nav>
+<nav id="side">
+<ul>
+  <% if user_signed_in?%>
+    <li><%= link_to image_tag("/userMypage.png"), user_mypage_index_path %></li>
+    <br>
+    <li><%= link_to image_tag("/userLogout.png"), destroy_user_session_path, method: :delete %></li>
+    <br>
+  <% elsif performer_signed_in?%>
+    <li><%= link_to image_tag("/pMypage.png"), performer_mypage_index_path %></li>
+    <br>
+    <li><%= link_to image_tag("/pLogout.png"), destroy_performer_session_path %></li>
+    <br>
+  <% else %>
+    <li><%= link_to image_tag("/sub1.png") , new_user_registration_path %></li>
+    <br>
+    <li><%= link_to image_tag("/sub2.png") , new_user_session_path %></li>
+    <br>
+    <li><%= link_to image_tag("/sub3.png") , new_performer_registration_path %></li>
+    <br>
+    <li><%= link_to image_tag("/sub4.png") , new_performer_session_path %></li>
+  <% end %>
+</ul>
+</nav>

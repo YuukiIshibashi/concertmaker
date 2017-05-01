@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "flowplayer.min.js" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav id ="head_menu">
+    <ul class="cf">
+    <li id="fixed_sign"><%= link_to image_tag("/sign.png"), root_path %></li>
+    <li>
+    <%= link_to 'パフォーマーを探す', musician_index_path %>
+    </li>
+    <li>
+    <%= link_to '演奏依頼を見る', event_index_path %>
+    </li>
+    <li>
+    <%= link_to '過去のイベント', past_event_index_path %>
+    </li>
+
+    <% if user_signed_in?%>
+      <li><%= link_to 'マイページ', user_mypage_index_path %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      </ul>
+      </nav>
+    <% elsif performer_signed_in?%>
+      <li><%= link_to 'マイページ', performer_mypage_index_path %></li>
+      <li><%= link_to 'ログアウト', destroy_performer_session_path, method: :delete %></li>
+      </ul>
+      </nav>
+    <% else %>
+    </ul>
+    </nav>
+    <nav id ="loginIcon">
+      <div>
+      <dt>ユーザー</dt>
+        <dd>
+          <ul>
+            <li><%= link_to 'ユーザー登録' , new_user_registration_path %></li>
+           <li><%= link_to 'ユーザーログイン' , new_user_session_path %></li>
+         </ul>
+       </dd>
+     </div>
+     <div>
+      <dt>パフォーマー</dt>
+      <dd>
+        <ul>
+        <li><%= link_to 'パフォーマー登録' , new_performer_registration_path %></li>
+        <li><%= link_to 'パフォーマーログイン' , new_performer_session_path %></li>
+       </ul>
+       </dd>
+      </div>
+    </nav>
+    <% end %>
+
+<%= yield %>
+<script>
+    $(function(){
+        $("#loginIcon dt").on("click", function() {
+            $(this).next().slideToggle();
+        });
+    });
+</script>
+
+</body>
+</html>
