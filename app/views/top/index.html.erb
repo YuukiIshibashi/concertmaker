@@ -16,14 +16,14 @@
 <nav id="side">
 <ul>
   <% if user_signed_in?%>
-    <li><%= link_to image_tag("/userMypage.png"), user_mypage_index_path %></li>
+    <li><%= link_to image_tag("/userMypage.png"), user_mypage_path(current_user.id) %></li>
     <br>
     <li><%= link_to image_tag("/userLogout.png"), destroy_user_session_path, method: :delete %></li>
     <br>
   <% elsif performer_signed_in?%>
-    <li><%= link_to image_tag("/pMypage.png"), performer_mypage_index_path %></li>
+    <li><%= link_to image_tag("/pMypage.png"), performer_mypage_path(current_performer.id) %></li>
     <br>
-    <li><%= link_to image_tag("/pLogout.png"), destroy_performer_session_path %></li>
+    <li><%= link_to image_tag("/pLogout.png"), destroy_performer_session_path, method: :delete %></li>
     <br>
   <% else %>
     <li><%= link_to image_tag("/sub1.png") , new_user_registration_path %></li>

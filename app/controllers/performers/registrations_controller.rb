@@ -1,6 +1,6 @@
 class Performers::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
-before_action :configure_account_update_params, only: [:update]
+# before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -18,17 +18,17 @@ before_action :configure_account_update_params, only: [:update]
   # end
 
    #PUT /resource
-   def update
-     respond_to do |format|
-    if @performer.update(configure_account_update_params) && @performer.movie.recreate_versions!
-      format.html { redirect_to performer_mypage_index_path(@performer), notice: 'Article was successfully updated.' }
-      format.json { head :no_content }
-    else
-      format.html { render action: 'edit' }
-      format.json { render json: @performer.errors, status: :unprocessable_entity }
-    end
-  end
-   end
+  #  def update
+  #    respond_to do |format|
+  #   if @performer.update(configure_account_update_params) && @performer.movie.recreate_versions!
+  #     format.html { redirect_to performer_mypage_index_path(@performer), notice: 'Article was successfully updated.' }
+  #     format.json { head :no_content }
+  #   else
+  #     format.html { render action: 'edit' }
+  #     format.json { render json: @performer.errors, status: :unprocessable_entity }
+  #   end
+  # end
+  #  end
 
   # DELETE /resource
   # def destroy
@@ -52,10 +52,10 @@ before_action :configure_account_update_params, only: [:update]
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    params.require(:performer).permit(:name, :email, :prefecture_id, :jenre_id, :message, :avatar_cache, :password, :password_confirmation, :current_password, :movie, :current_password)
-    # devise_parameter_sanitizer.permit(:account_update, keys: [:performer])
-  end
+  # def configure_account_update_params
+  #   params.require(:performer).permit(:name, :email, :prefecture_id, :jenre_id, :message, :avatar_cache, :password, :password_confirmation, :current_password, :movie, :current_password)
+  #   # devise_parameter_sanitizer.permit(:account_update, keys: [:performer])
+  # end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

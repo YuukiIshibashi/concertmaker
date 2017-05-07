@@ -1,11 +1,12 @@
 class Performer < ActiveRecord::Base
-  attr_accessor :current_password
+  #attr_accessor :current_password
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :prefecture
   belongs_to :jenre
   has_many   :candidacies,      dependent: :destroy
   has_many   :events,       through: :candidecies
+  has_many :requests
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

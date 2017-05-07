@@ -3,25 +3,31 @@
 require File.join(Rails.root, "lib", "carrierwave", "ffmpeg")
 
 class MovieUploader < CarrierWave::Uploader::Base
-  require 'streamio-ffmpeg'
-  version :screenshot do
-    process :screenshot
-    def full_filename (for_file = model.logo.file)
-      "screenshot.jpg"
-    end
-  end
-
-  def screenshot
-    tmpfile = File.join(File.dirname(current_path), "tmpfile")
-
-    File.rename(current_path, tmpfile)
-
-    movie = FFMPEG::Movie.new(tmpfile)
-    movie.screenshot(current_path + ".jpg", {resolution: '512x312' }, preserve_aspect_ratio: :width)
-    File.rename(current_path + ".jpg", current_path)
-
-    File.delete(tmpfile)
-  end
+  version :screenshots do
+   process :screenshot
+   def full_filename (for_file = model.logo.file)
+       "screenshot.jpg"
+   end
+ end
+  # require 'streamio-ffmpeg'
+  # version :screenshot do
+  #   process :screenshot
+  #   def full_filename (for_file = model.logo.file)
+  #     "screenshot.jpg"
+  #   end
+  # end
+  #
+  # def screenshot
+  #   tmpfile = File.join(File.dirname(current_path), "tmpfile")
+  #
+  #   File.rename(current_path, tmpfile)
+  #
+  #   movie = FFMPEG::Movie.new(tmpfile)
+  #   movie.screenshot(current_path + ".jpg", {resolution: '512x312' }, preserve_aspect_ratio: :width)
+  #   File.rename(current_path + ".jpg", current_path)
+  #
+  #   File.delete(tmpfile)
+  # end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -34,10 +40,22 @@ class MovieUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # def store_dir
+  #   "/videos/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
 
+  def store_dir
+    "assets/uploads"
+  end
+  #
+  # def store_dir
+  #   ""
+  # end
+
+
+  def root
+    "#{Rails.root}/app/assets/images"
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

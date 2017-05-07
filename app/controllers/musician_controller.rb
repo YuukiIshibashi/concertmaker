@@ -3,7 +3,8 @@ class MusicianController < ApplicationController
     @performers = Performer.all
   end
 
-  def profile
-    @performer = Performer.find(params[:format])
+  def show
+    @request = Request.new
+    @performer = Performer.find(params[:id])
   end
 end

@@ -1,0 +1,17 @@
+<% request.replies.each do |reply| %>
+  <% unless reply.id.nil? %>
+    <ul>
+    <li class="replyContent">
+      <% unless reply.pwerformer_id.nil? %>
+        <p class="replyImage"><%= performer_profile_img(reply.performer)%></p>
+        <p class="commentName"><%= link_to "#{reply.performer.name} ", performer_mypage_path(reply.performer.id)%>さんが返信しました。</p>
+      <% end %>
+      <% unless reply.user_id.nil? %>
+        <p class="replyImage"><%= user_profile_img(reply.user)%></p>
+        <p class="commentName"><%= link_to "#{reply.user.try(:name)} ", user_mypage_path(reply.user.id) %>さんが返信しました。</p>
+      <% end %>
+      <p class="commentContent"><%= reply.content %></p>
+      <li>
+      <ul>
+   <% end %>
+ <% end %>

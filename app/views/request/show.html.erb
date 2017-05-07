@@ -1,0 +1,6 @@
+
+<%= @request.content %>
+<div id="replies_area">
+<%= render partial: 'reply/form', locals: { request: @request, reply: @reply } %>
+<%= render partial: 'reply/index', locals: { request: @request } %>
+</div>

@@ -1,0 +1,12 @@
+<%= @user.name %>
+<%= user_profile_img(@user) %>
+
+
+<%= link_to "出演依頼をする", new_event_path %>
+<%= link_to "登録情報変更", edit_user_registration_path %>
+
+<p>リクエスト一覧</p>
+<% @requests.each do |request| %>
+<%=link_to "#{request.performer.name}さんへのメッセージ ", request_path(request.id)%>
+
+<% end %>
