@@ -1,0 +1,46 @@
+<p class = "sign"><%= image_tag '/searchP.png' %></p>
+
+<div id="wrap">
+<div class="container">
+  <h3 >絞り込み検索</h3>
+  <ul class="row">
+  <%= form_tag(search_musicians_path, method: :get ) do %>
+  <li class="col-md-5 col-xs-12">
+  <%= collection_select '', :prefecture_id, Prefecture.all, :id, :name, { prompt: "都道府県選択", class: "dropdown" } %>
+  </li>
+  <li class="col-md-5 col-xs-12">
+  <%= collection_select '', :jenre_id, Jenre.all, :id, :name, { prompt: "ジャンル選択", class: "dropdown" } %>
+  </li>
+  <li class="col-md-2 col-xs-12">
+  <%= submit_tag "検索" %>
+  </li>
+  <% end %>
+</ul>
+<br>
+<br>
+<br>
+
+
+
+
+<ul class="row row-0">
+  <% @performers.each do |performer| %>
+    <li  class="col-md-4 col-xs-12">
+      <div class="performeList">
+        <%= link_to performer_profile_img(performer),musician_path(performer.id) %>
+        <p class="nameArea">
+          <%= performer.name %><br>
+          <%= performer.jenre.name %><br>
+          <%= performer.message %>
+        </p>
+        <p class="pointArea">
+          <%= performer.support %>
+        </p>
+      </div>
+
+    </li>
+<% end %>
+</ul>
+
+</div>
+</div>

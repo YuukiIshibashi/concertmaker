@@ -8,3 +8,52 @@
 #movie img {
   width: 100%;
 }
+.performer_list{
+  background-color: #C3DE98;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+
+  a{
+    font-size: 1.2rem;
+    color: #fff;
+  }
+}
+.performer_discription{
+  margin-top: 3.5rem;
+  border: solid 0.1rem #C3DE98;
+  padding: 2rem;
+  position: relative;
+  li{
+    border-bottom: dotted 0.2rem #C3DE98;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+
+  }
+  p{
+    position: absolute;
+    background-color: #C3DE98;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    top: -3.5rem;
+    left: 0;
+  }
+  small{
+    width: 0;
+	height: 0;
+	border: 1.75rem solid transparent;
+	border-left: 1.75rem solid #C3DE98;
+  border-bottom: 1.75rem solid #C3DE98;
+  position: absolute;
+  top: -3.5rem;
+  left: 12rem;
+
+  }
+}
+.performer_title{
+  background-color: #EF8585;
+  font-family: 'Hannari', serif;
+  padding: 1rem;
+  font-size: 2rem;
+  color: #fff;
+}

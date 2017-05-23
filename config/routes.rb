@@ -12,23 +12,29 @@ Rails.application.routes.draw do
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
-  resources :performer_mypage, only: [:show]
-  resources :candidacy
-
-  resources :musician, only: [:index, :show] do
+  resources :performer_mypage, only: [:show, :new, :create]
+  resources :candidacies
+  resources :supports, only: [:show, :new, :create, :destroy] do
     collection do
-      get :search
+      get :update
     end
   end
 
-  resources :request, only: [:create, :destroy, :show] do
-    resources :reply, only: [:create, :destroy]
+  resources :musicians, only: [:index, :show], shallow: true do
+    collection do
+      get :search
+      get :event
+    end
+  end
+
+  resources :requests, only: [:create, :destroy, :show] do
+    resources :replies, only: [:create, :destroy]
   end
 
   resources :top, only: [:index]
-  resources :past_event
-  resources :event
+  resources :past_events
+  resources :events
   resources :user_mypage, only: [:show]
   resources :top, only: [:index]
-  resources :commet, only: [:new, :create, :destroy]
+  resources :comments, only: [:new, :create, :destroy]
 end

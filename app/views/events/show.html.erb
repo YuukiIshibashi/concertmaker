@@ -1,0 +1,74 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="container">
+  <ul class="row event_detail">
+    <h2>イベント名：<%= @event.title %></h2>
+    <li class="col-md-6 col-sm-12">
+      <table>
+        <tr>
+          <th>予定日</th><td><%= @event.start %> 〜 <%= @event.end %></td>
+        </tr>
+        <tr>
+          <th>開催都道府県</th><td><%= @event.prefecture.name %><br><%= @event.prace %></td>
+        </tr>
+        <tr>
+          <th>詳細</th><td><%= @event.content %></td>
+        </tr>
+    </table>
+
+  </li>
+   <li class="col-md-6 col-sm-12 profileImg">
+     <%= image_tag(@event.image, alt: @event.title) if @event.image? %>
+   </li>
+   <br>
+   <br>
+
+
+  <li class="col-md-12">
+
+  <% if performer_signed_in? %>
+
+    <% if current_performer.candidate?(@event.id) %>
+  　　<p>このイベントに立候補済みです</p>
+     <%= link_to "立候補を取り消す", candidacy_path(@candidated.id), method: :delete %>
+  　<% else %>
+  　　　<%= form_for(@candidacy) do |f| %>
+       <%= f.hidden_field :performer_id, value: current_performer.id %>
+       <%= f.hidden_field :event_id, value: @event.id %>
+
+      <%= f.submit "このイベントに立候補する", class: "btn btn-large btn-primary" %>
+   <% end %>
+   <% end %>
+  <% end %>
+</li>
+
+<li class="col-md-12">
+ <% if user_signed_in? %>
+  <p class="sign2">このイベントに立候補しているパフォーマー<p>
+    <% @candidasies.each do |can| %>
+    <ul class="row">
+    <li class="col-sm-1 col-xs-2"><%= performer_profile_img(can.performer)%></li>
+    <li class="col-sm-11 col-xs-10"><%= link_to "#{can.performer.name} ", musician_path(can.performer.id) %>さん</li>
+  </ul>
+    <% end %>
+
+   <% if @event.user_id == current_user.id %>
+     <div class="recrute">
+      <% if @event.status == 0 %>
+      <%= form_for(@event, url: event_path) do |f| %>
+           <%= f.hidden_field :status, value: 1 %>
+           <%= f.submit "募集終了", class: "btn btn-large btn-primary" %>
+       <% end %>
+      <%else%>
+      <%= form_for(@event, url: event_path) do |f| %>
+           <%= f.hidden_field :status, value: 0 %>
+           <%= f.submit "募集再開", class: "btn btn-large btn-primary" %>
+      <% end %>
+    <% end %>
+    <p><%= link_to "このイベントを削除する", event_path(@event.id), method: :delete %></p>
+ <% end %>
+ </div>
+<% end %>
+</li>
+</ul>
+</div>

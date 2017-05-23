@@ -1,0 +1,13 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="container">
+<p><%= notice %></p>
+<%= form_for(@support) do |f| %>
+<p>応援するパフォーマーのメールアドレス</p>
+<%= f.email_field :email, class: 'form-control' %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :status %>
+<%= f.submit '登録' %>
+<% end %>
+</div>
+</div>

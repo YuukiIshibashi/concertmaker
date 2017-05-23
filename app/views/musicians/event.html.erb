@@ -1,0 +1,25 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="container">
+
+<h2><%= @performer.name %>さんが出演したイベント</h2>
+
+<ul>
+  <% @past_events.each do |event| %>
+    <li class="row">
+      <div class="col-md-2 col-sm-10">
+        <%= image_tag(event.image, alt: event.title) if event.image? %>
+      </div>
+      <div class="col-md-8 col-sm-10">
+        <p>イベント名：<%= event.title %></p>
+        <p>実施日：<%= event.date %></p>
+        <p>開催都道府県：<%= event.prefecture.name %></p>
+        <%= link_to "詳細", past_event_path(event.id) %>
+      </div>
+    </li>
+    <br>
+<% end %>
+</ul>
+
+</div>
+</div>

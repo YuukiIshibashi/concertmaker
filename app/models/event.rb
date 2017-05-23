@@ -4,5 +4,10 @@ class Event < ActiveRecord::Base
   has_many   :performers,       through: :candidecies
   mount_uploader :image, ImageUploader
 
-  
+  scope :date_field, -> {
+    where(status: 0)
+    .where(end: Date.today..Date.today.advance(years: 1))
+  }
+
+
 end

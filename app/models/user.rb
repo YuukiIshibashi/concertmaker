@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_many :requests
+  has_many :replies
+  has_many :supports
+  has_many :candidecies,       through: :events
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

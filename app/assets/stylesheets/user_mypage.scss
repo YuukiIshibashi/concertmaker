@@ -1,3 +1,21 @@
 // Place all the styles related to the user_mypage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user_title{
+  background-color: #FAD5D6;
+  font-family: 'Hannari', serif;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.user_list{
+  background-color: #EF8585;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+
+  a{
+    font-size: 1.2rem;
+    color: #fff;
+  }
+}

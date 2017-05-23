@@ -31,6 +31,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'momentjs-rails'
 gem 'kaminari'
 gem 'streamio-ffmpeg'
+gem 'rqrcode'
 gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'
 
 # Use ActiveModel has_secure_password

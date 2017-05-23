@@ -1,4 +1,5 @@
 class Performers::SessionsController < Devise::SessionsController
+  after_filter :no_flash
 # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -22,4 +23,10 @@ class Performers::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  protected
+  def no_flash
+    if flash[:notice].present?
+      flash.delete(:notice)
+    end
+  end
 end

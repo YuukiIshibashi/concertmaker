@@ -1,15 +1,15 @@
 <p id = "topimage"><%= image_tag '/top.png' %></p>
-
+<p><%= notice %></p>
 <nav id="top_menu">
   <ul class="cf">
     <li>
-    <%= link_to image_tag("/MainBtn1.png"), musician_index_path %>
+    <%= link_to image_tag("/MainBtn1.png"), musicians_path %>
     </li>
     <li>
-    <%= link_to image_tag("/MainBtn2.png"), event_index_path %>
+    <%= link_to image_tag("/MainBtn2.png"), events_path %>
     </li>
     <li>
-    <%= link_to image_tag("/MainBtn3.png"), past_event_index_path %>
+    <%= link_to image_tag("/MainBtn3.png"), past_events_path %>
     </li>
   </ul>
 </nav>

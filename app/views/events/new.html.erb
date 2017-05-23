@@ -1,0 +1,57 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="form">
+   <h2>出演依頼イベントを登録しよう</h2>
+
+<%= form_for(@event) do |f| %>
+
+  <p>イベント名</p>
+  <%= f.text_field :title, class: 'form-control' %>
+  <br />
+  <br />
+  <br />
+  <p>実施予定日</p>
+  <small>開始日</small>
+  <div class='input-group date datepicker'>
+  <%= f.text_field :start, class: 'form-control', data: { :date_format => 'YYYY/MM/DD' } %>
+  <span class="input-group-addon">
+  <span class="fa fa-calendar"></span>
+  </span>
+  </div>
+  <small>終了日</small>
+  <div class='input-group date datepicker'>
+  <%= f.text_field :end, :class => 'form-control',data: { :date_format => 'YYYY/MM/DD' } %>
+  <span class="input-group-addon">
+  <span class="fa fa-calendar"></span>
+  </span>
+  </div>
+  <br />
+  <br />
+  <br />
+  <p開催場所</p>
+  <small>開催場所の都道府県</small>
+  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name,  { prompt: "選択してください", class: "dropdown" } %>
+  <br />
+  <br />
+  <br />
+  <p>場所詳細</p>
+  <%= f.text_field :prace, class: 'form-control' %>
+  <br />
+  <br />
+  <br />
+  <p>内容</p>
+  <%= f.text_area :content, class: 'form-control' %>
+  <br />
+  <br />
+  <br />
+  <p>画像など</p>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.hidden_field :status, value: 0 %>
+  <br />
+  <br />
+  <br />
+  <%= f.submit '登録' %>
+<% end %>
+</div>
+</div>

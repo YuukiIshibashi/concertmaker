@@ -1,1 +1,56 @@
-<%= link_to "登録情報変更", edit_performer_registration_path %>
+  <p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="container">
+  <p><%= notice %></p>
+
+  <h3><%= @performer.name %>さんのマイページ</h3>
+  <div class="row">
+    <div class="col-sm-3 col-xs-12">
+    <p><%= performer_profile_img(@performer) %></p>
+    <ul>
+      <li class="performer_list"><%= link_to "登録情報変更", edit_performer_registration_path %></li>
+      <li class="performer_list"><%= link_to "出演イベントを作成", new_past_event_path %></li>
+      <li class="performer_list"><%= link_to "応援ポイントをつける", new_performer_mypage_path %></li>
+    </ul>
+    </div>
+    <article class="col-sm-9 col-xs-12">
+      <div class="performer_discription">
+      <p>基本プロフィール</p><small></small>
+      <ul>
+      <li>ジャンル：<%= @performer.jenre.name %></li>
+      <li>主な活動場所：<%= @performer.prefecture.name %></li>
+      <li>一言メッセージ：<%= @performer.message %></li>
+      <li>自己紹介<br><%= @performer.try(:content) %></li>
+    </ul>
+  </div>
+
+<br>
+<br>
+
+<p class="performer_title">オファーメッセージ一覧</p>
+<% if @requests.present? %>
+ <ul class="row">
+  <% @requests.each do |request| %>
+   <li class="col-sm-1 col-xs-2"><%= user_profile_img(request.user)%></li>
+   <li class="col-sm-11 col-xs-10"><%=link_to "#{request.user.name}さんからのメッセージ ", request_path(request.id)%></li>
+<% end %>
+</ul>
+<% else %>
+<p>メッセージはありません</p>
+<% end %>
+<br>
+<br>
+
+<p  class="performer_title">出演イベント一覧</p>
+<ul>
+  <% @past_events.each do |event| %>
+    <li>
+        <p>イベント名：<%= event.title %><%= link_to "詳細", past_event_path(event.id) %></p>
+
+    </li>
+    <br>
+<% end %>
+</ul>
+</article>
+</div>
+</div>

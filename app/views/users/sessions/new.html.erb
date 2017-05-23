@@ -1,13 +1,18 @@
-<h2>Log in</h2>
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+
+<h2>ユーザーログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+  <br />
+
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
@@ -17,10 +22,13 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+    <br />
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+
+</div>

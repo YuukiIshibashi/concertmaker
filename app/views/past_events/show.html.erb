@@ -1,0 +1,41 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="container">
+  <ul class="row event_detail">
+    <h2>イベント名：<%= @past_event.title %></h2>
+    <li class="col-md-6 col-sm-12">
+      <table>
+        <tr>
+          <th>予定日</th><td><%= @past_event.date %></td>
+        </tr>
+        <tr>
+          <th>開催都道府県</th><td><%= @past_event.prefecture.name %><br><%= @past_event.prace %></td>
+        </tr>
+        <tr>
+          <th>詳細</th><td><%= @past_event.content %></td>
+        </tr>
+    </table>
+    </li>
+    <li class="col-md-6 col-sm-12 profileImg">
+      <%= image_tag(@past_event.image, alt: @past_event.title) if @past_event.image? %>
+    </li>
+ </ul>
+ <br>
+ <br>
+
+    <li class="row">
+    <p class="sign2">動画</p>
+    <p class="col-sm-offset-3 col-sm-6 col-xs-12">
+     <%= video_tag @past_event.movie, width: "100%", autoplay: false, poster_skip_pipeline: true, controls: true %>
+    </p>
+
+
+  <% if performer_signed_in? %>
+  <div class="recrute">
+  　　<% if @past_event.performer_id == current_performer.id %>
+     <p><%= link_to "このイベントを削除する", past_event_path(@past_event.id), method: :delete %></p>
+   <% end %>
+  </div>
+  <% end %>
+</div>
+</div>

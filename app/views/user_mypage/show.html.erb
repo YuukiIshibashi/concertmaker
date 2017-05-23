@@ -1,12 +1,58 @@
-<%= @user.name %>
-<%= user_profile_img(@user) %>
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="container">
+
+<h3><%= @user.name %>さんのマイページ</h3>
+<br>
+
+<div class="row">
+<div class="col-sm-3 col-xs-12">
+  <p><%= user_profile_img(@user) %></p>
+  <ul>
+  <li class="user_list"><%= link_to "出演依頼をする", new_event_path %></li>
+  <li class="user_list"><%= link_to "登録情報変更", edit_user_registration_path %></li>
+  <li class="user_list"><%= link_to "応援コード発行", new_support_path %></li>
+  </ul>
+</div>
+<div class="col-sm-9 col-xs-12">
+  <p class="user_title">　<%= @user.name %>さんが作ったイベント</p>
+  <ul>
+    <% @events.each do |event| %>
+    <li>
+      <%=link_to "#{event.title} ", event_path(event.id)%>
+      <% if @candidacy.present? %>
+      <small>※このイベントに立候補があります</small>
+      <% end %>
+      <li>
+    <% end %>
+ </ul>
+ <br>
+ <p class="user_title">　オファーメッセージをだしたパフォーマー</p>
+ <% if @requests.present? %>
+ <ul class="row">
+     <% @requests.each do |request| %>
+     <li class="col-sm-1 col-xs-2"><%= performer_profile_img(request.performer)%></li>
+     <li class="col-sm-11 col-xs-10"><%=link_to "#{request.performer.name}さん ", request_path(request.id)%></li>
+     <% end %>
+</ul>
+  <% elsif %>
+  <p>まだいません</p>
+  <% end %>
+</div>
+</div>
 
 
-<%= link_to "出演依頼をする", new_event_path %>
-<%= link_to "登録情報変更", edit_user_registration_path %>
 
-<p>リクエスト一覧</p>
-<% @requests.each do |request| %>
-<%=link_to "#{request.performer.name}さんへのメッセージ ", request_path(request.id)%>
+
+
+<% @supports.each do |support| %>
+<%=link_to "#{support.performer.name}さんへの応援コード ", support_path(support.id)%>
 
 <% end %>
+
+
+
+
+
+</div>
+</div>

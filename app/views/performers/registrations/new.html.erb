@@ -34,6 +34,12 @@
   <br />
 
   <div class="field">
+    <%= f.label :自己紹介 %><br />
+    <%= f.text_area :content, autofocus: true %>
+  </div>
+  <br />
+
+  <div class="field">
     <%= f.label :写真をいれてね！ %><br />
     <%= f.file_field :avatar %>
     <%= f.hidden_field :avatar_cache %>

@@ -13,13 +13,13 @@
     <ul class="cf">
     <li id="fixed_sign"><%= link_to image_tag("/sign.png"), root_path %></li>
     <li>
-    <%= link_to 'パフォーマーを探す', musician_index_path %>
+    <%= link_to 'パフォーマーを探す', musicians_path %>
     </li>
     <li>
-    <%= link_to '演奏依頼を見る', event_index_path %>
+    <%= link_to '演奏依頼を見る', events_path %>
     </li>
     <li>
-    <%= link_to '過去のイベント', past_event_index_path %>
+    <%= link_to '過去のイベント', past_events_path %>
     </li>
 
     <% if user_signed_in?%>
@@ -57,7 +57,12 @@
     </nav>
     <% end %>
 
-<%= yield %>
+
+
+     <%= yield %>
+
+
+
 <script>
     $(function(){
         $("#loginIcon dt").on("click", function() {

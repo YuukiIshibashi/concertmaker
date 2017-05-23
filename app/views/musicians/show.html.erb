@@ -1,0 +1,54 @@
+
+<div class="container">
+<div class="performerImage">
+  <dt><%= performer_profile_img(@performer) %></dt>
+  <h4><%= @performer.name %><br></br>
+    <small class="point">応援ポイント:　<%= @performer.support %></small></h4>
+  <dd>ジャンル：<%= @performer.jenre.name %></br>
+  主な活動場所：<%= @performer.prefecture.name %></br></br>
+  <%= link_to "過去に出演したイベント", event_musicians_path(@performer.id) %>
+</dd>
+</div>
+<br>
+<br>
+<br>
+
+
+
+<h3 class="sign1">自己紹介</h3>
+<p class="content1"><%= @performer.content %></p>
+
+<h3 class="sign1">動画</h3>
+  <div class="row">
+    <p class="col-sm-offset-3 col-sm-6 col-xs-12">
+     <%= video_tag @performer.movie, width: "100%", autoplay: false, poster_skip_pipeline: true, controls: true %>
+     </p>
+  </div>
+
+<% if user_signed_in?%>
+<h3 class="sign1">オファーメッセージを送る</h3>
+<%= form_for(@request) do |f| %>
+<%= f.text_area :content, class: 'form-control' %>
+<%= f.hidden_field :performer_id, :value => @performer.id %>
+<%= f.submit '登録' %>
+<% end %>
+<% end %>
+
+
+<!--<%= link_to :movie, @performer.movie_url.to_s %>
+<%= flowplayer_for :movie, '/flowplayer.swf','jquery' do |player|
+  player.playlist [{:url => "video_still.jpg" },
+    {:url => "video_512x288.flv", :autoplay => false,
+                    :autoBuffering => true}]
+  player.onload do
+    'this.unmute();'
+  end
+ end
+ %>-->
+
+
+
+ <!-- <%= image_tag @performer.movie_url(:screenshots).to_s %> -->
+
+ <!--<%= video_tag "uploads/IMG_1977__1_.MOV",size: "500x500", autoplay: true, poster_skip_pipeline: true %>-->
+  </div>

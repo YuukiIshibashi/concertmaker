@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503014540) do
+ActiveRecord::Schema.define(version: 20170512131014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170503014540) do
     t.integer  "user_id"
     t.date     "start"
     t.date     "end"
+    t.integer  "status"
   end
 
   create_table "jenres", force: :cascade do |t|
@@ -59,6 +60,8 @@ ActiveRecord::Schema.define(version: 20170503014540) do
     t.string   "image"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "movie"
+    t.integer  "performer_id"
   end
 
   create_table "performers", force: :cascade do |t|
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170503014540) do
     t.string   "encrypted_password",     default: "", null: false
     t.integer  "prefecture_id"
     t.integer  "jenre_id"
-    t.integer  "support"
+    t.integer  "support",                default: 0
     t.string   "movie"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -81,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170503014540) do
     t.datetime "updated_at",                          null: false
     t.string   "avatar"
     t.string   "message"
+    t.text     "content"
   end
 
   add_index "performers", ["email"], name: "index_performers_on_email", unique: true, using: :btree
@@ -107,6 +111,16 @@ ActiveRecord::Schema.define(version: 20170503014540) do
     t.integer  "performer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "supports", force: :cascade do |t|
+    t.integer  "user_id",                  null: false
+    t.integer  "performer_id",             null: false
+    t.string   "uuid",                     null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "status",       default: 0
+    t.string   "email"
   end
 
   create_table "users", force: :cascade do |t|

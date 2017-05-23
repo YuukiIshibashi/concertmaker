@@ -1,0 +1,36 @@
+<% request.replies.each do |reply| %>
+  <% unless reply.id.nil? %>
+
+        <% unless reply.performer_id.nil? %>
+        <ul class="row performer_reply">
+        <li class="col-sm-1 col-xs-2"><%= performer_profile_img(reply.performer)%></li>
+        <li class="col-sm-11 col-xs-10"><%= link_to "#{reply.performer.name} ", musician_path(reply.performer.id)%>さんが返信しました。</li>
+        <br>
+        </ul>
+        <br>
+        <ul class="row performer_reply">
+        <p class="col-sm-12">
+          <small></small>
+          <%= reply.content %></p>
+        </ul>
+        <% end %>
+
+        <% unless reply.user_id.nil? %>
+        <ul class="row user_reply">
+        <li class="col-sm-1 col-xs-2"><%= user_profile_img(reply.user)%></li>
+        <li class="col-sm-11 col-xs-10"><%= reply.user.name %>さんが返信しました。</li>
+        </ul>
+        <br>
+        <ul class="row user_reply">
+        <p class="col-sm-10">
+          <small></small>
+          <%= reply.content %>
+        </p>
+        </ul>
+        <% end %>
+
+
+  <br>
+  <br>
+   <% end %>
+ <% end %>

@@ -30,12 +30,14 @@
   }
  a{
    text-decoration: none;
+   color: gray;
  }
 
  .sign{
    width: 100%;
+   margin: 0;
  }
- .sign img{
+ img{
    width: 100%;
  }
  .container{
@@ -43,3 +45,16 @@
    margin: 0;
    width: 100%;
  }
+#wrap{
+  margin: 5%;
+}
+.row{
+  padding: 0;
+}
+ul{
+  padding: 0;
+}
+li{
+  margin: 0;
+  padding: 0;
+}

@@ -7,6 +7,9 @@ class Performer < ActiveRecord::Base
   has_many   :candidacies,      dependent: :destroy
   has_many   :events,       through: :candidecies
   has_many :requests
+  has_many :replies
+  has_many :supports
+  has_many :past_events
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -14,7 +17,7 @@ class Performer < ActiveRecord::Base
    mount_uploader :movie, MovieUploader
 
    def candidate?(event)
-     Candidacy.find_by(event_id: event)
+     Candidacy.find_by(event_id: event, performer_id: self.id)
    end
 
 end

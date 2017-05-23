@@ -1,0 +1,18 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+
+<div id="wrap">
+<div class="container">
+<p>パフォーマーとしてログインしている状態で、このQRコードを読み込んでください</p>
+<p><%= qrcode_tag "http://localhost:3000/supports?uuid=#{@support.uuid} ", module_size: 5 %></p>
+<br>
+<br>
+<p>QRコードリーダーがない場合は、下記のコードをパフォーマーマイページの応援コード入力欄に入力してください</p>
+<p class="code"><%= @support.uuid %></p>
+
+
+<%=link_to "もどる", user_mypage_path(@support.user.id)%>
+<%=link_to "削除する", support_path(@support.id), method: :delete %>
+
+
+</div>
+</div>

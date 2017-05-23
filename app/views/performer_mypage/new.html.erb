@@ -1,0 +1,12 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="container">
+
+<p><%= notice %></p>
+
+<%= form_tag("/performer_mypage", method: "post" ) do %>
+<%= text_field_tag :uuid %>
+
+<% end %>
+
+<p><%= link_to "ooo", performer_mypage_index_path( uuid: 1) %></p>

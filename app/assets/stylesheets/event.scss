@@ -2,6 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .event_detail{
-  margin: 5%;
+  h2{
+    padding-left: 15px;
+  }
+  table{
 
+    table-layout: fixed;
+    width: 100%;
+    th{
+      width: 30%;
+      background-color: #C3DE98;
+      border: solid 0.1rem #fff;
+      padding: 1rem;
+    }
+    td{
+        width: 70%;
+      background-color: #fff;
+      border: solid 0.1rem #C3DE98;
+      padding: 1rem;
+      word-wrap:break-word;
+
+    }
+  }
+
+}
+.recrute{
+  float: right;
 }

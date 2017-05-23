@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  after_filter :no_flash
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
@@ -57,4 +58,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  protected
+  def no_flash
+    if flash[:notice].present?
+      flash.delete(:notice)
+    end
+  end
 end
