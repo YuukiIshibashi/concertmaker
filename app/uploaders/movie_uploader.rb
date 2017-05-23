@@ -1,14 +1,14 @@
 # encoding: utf-8
 
-require File.join(Rails.root, "lib", "carrierwave", "ffmpeg")
+# require File.join(Rails.root, "lib", "carrierwave", "ffmpeg")
 
 class MovieUploader < CarrierWave::Uploader::Base
-  version :screenshots do
-   process :screenshot
-   def full_filename (for_file = model.logo.file)
-       "screenshot.jpg"
-   end
- end
+ #  version :screenshots do
+ #   process :screenshot
+ #   def full_filename (for_file = model.logo.file)
+ #       "screenshot.jpg"
+ #   end
+ # end
   # require 'streamio-ffmpeg'
   # version :screenshot do
   #   process :screenshot
@@ -32,7 +32,7 @@ class MovieUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  include CarrierWave::FFMPEG
+  #include CarrierWave::FFMPEG
 
   # Choose what kind of storage to use for this uploader:
   storage :file
