@@ -32,6 +32,7 @@ gem 'momentjs-rails'
 gem 'kaminari'
 gem 'streamio-ffmpeg'
 gem 'rqrcode'
+gem 'execjs'
 gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'
 gem 'rails_12factor', group: :production
 
