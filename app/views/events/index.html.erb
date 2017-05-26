@@ -3,9 +3,9 @@
 <div id="wrap">
 <div class="container">
 
-<ul class="border">
+<ul>
   <% @events.each do |event| %>
-    <li class="row">
+    <li class="row border">
       <div class="col-md-2 col-sm-10">
         <%= image_tag(event.image, alt: event.title) if event.image? %>
       </div>
@@ -14,7 +14,7 @@
         <p>予定日：<%= event.start %>　〜　<%= event.end %></p>
         <p>開催都道府県：<%= event.prefecture.name %></p>
         <%= link_to "詳細", event_path(event.id) %>
-      </div>
+      </div><br>
     </li>
     <br>
 <% end %>
