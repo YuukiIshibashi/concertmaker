@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# require File.join(Rails.root, "lib", "carrierwave", "ffmpeg")
+ require File.join(Rails.root, "lib", "carrierwave", "ffmpeg")
 
 class MovieUploader < CarrierWave::Uploader::Base
  #  version :screenshots do
@@ -45,7 +45,7 @@ class MovieUploader < CarrierWave::Uploader::Base
   # end
 
   def store_dir
-    "assets/uploads"
+    "assets/images/uploads"
   end
   #
   # def store_dir
@@ -54,7 +54,7 @@ class MovieUploader < CarrierWave::Uploader::Base
 
 
   def root
-    "#{Rails.root}/app/assets/images"
+    "#{Rails.root}/app/"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

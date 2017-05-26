@@ -21,7 +21,7 @@
 <br>
 
 
-
+<%= link_to "ポイント順で並べ替え",point_musicians_path %>
 
 <ul class="row row-0">
   <% @performers.each do |performer| %>
@@ -29,9 +29,9 @@
       <div class="performeList">
         <%= link_to performer_profile_img(performer),musician_path(performer.id) %>
         <p class="nameArea">
-          <%= performer.name %><br>
-          <%= performer.jenre.name %><br>
+          <strong><%= performer.name %></strong><br>
           <%= performer.message %>
+          <small><%= performer.jenre.name %></small>
         </p>
         <p class="pointArea">
           <%= performer.support %>

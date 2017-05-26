@@ -29,12 +29,13 @@
  <br>
  <p class="user_title">　オファーメッセージをだしたパフォーマー</p>
  <% if @requests.present? %>
- <ul class="row">
+
      <% @requests.each do |request| %>
+     <ul class="row">
      <li class="col-sm-1 col-xs-2"><%= performer_profile_img(request.performer)%></li>
-     <li class="col-sm-11 col-xs-10"><%=link_to "#{request.performer.name}さん ", request_path(request.id)%></li>
+     <li class="col-sm-10 col-xs-9"><%=link_to "#{request.performer.name}さん ", request_path(request.id)%></li>
+     </ul>
      <% end %>
-</ul>
   <% elsif %>
   <p>まだいません</p>
   <% end %>

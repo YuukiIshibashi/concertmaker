@@ -1,4 +1,9 @@
 class Performer < ActiveRecord::Base
+  validates :message, length: { maximum: 10 }
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :movie, presence: true
+  validates :prefecture, presence: true
   #attr_accessor :current_password
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

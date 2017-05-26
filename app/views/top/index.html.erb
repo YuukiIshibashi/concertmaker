@@ -13,7 +13,9 @@
     </li>
   </ul>
 </nav>
-<nav id="side">
+
+<div id="contents" class="row">
+<nav id="side" class="col-sm-4 col-xs-12">
 <ul>
   <% if user_signed_in?%>
     <li><%= link_to image_tag("/userMypage.png"), user_mypage_path(current_user.id) %></li>
@@ -36,3 +38,14 @@
   <% end %>
 </ul>
 </nav>
+<section class="col-sm-8 col-xs-12">
+  <h1>コンサートメーカーとは</h1>
+  <p>音楽が好き、演奏したい、誰かに音楽をとどけたい。<br>
+    そう思って音楽を続けている方や楽団は多くあります。<br>
+    一方で、コンサートに行きたくてもいけない方々が多くいらっしゃるのも現実です。<br>
+    コンサートメーカーは、双方をつないで、あたたかいコンサートをたくさん生み出すことを目的にしています。
+  </p>
+</section>
+
+
+</div>

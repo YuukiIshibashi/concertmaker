@@ -12,6 +12,7 @@
       <li class="performer_list"><%= link_to "出演イベントを作成", new_past_event_path %></li>
       <li class="performer_list"><%= link_to "応援ポイントをつける", new_performer_mypage_path %></li>
     </ul>
+    <p>応援ポイント：<%= @performer.support %>
     </div>
     <article class="col-sm-9 col-xs-12">
       <div class="performer_discription">

@@ -1,7 +1,7 @@
 <p class = "sign"><%= image_tag '/image.png' %></p>
-<div id="wrap">
+<div id="wrap2">
 <div class="container">
-  <h4><%= @request.user.name %>さんから<%= @request.performer.name %>さんへのリクエストメッセージ</h4>
+  <h4 class="request"><%= @request.user.name %>さんから<%= @request.performer.name %>さんへのリクエストメッセージ</h4>
   <div id ="requestContent" class="border"><%= @request.content %></div>
   <br>
   <br>

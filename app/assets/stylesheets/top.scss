@@ -58,10 +58,7 @@ a{
 }
 
 
-#side{
-  width: 40%;
-  padding: 0;
-}
+
 #side ul{
   padding: 0;
 }
@@ -77,6 +74,23 @@ a{
 #side img:hover{
   opacity: 0.5;
   transition-property: all;
+}
+
+#contents{
+  font-family: 'Hannari', serif;
+  margin-top: 2rem;
+
+  section{
+    h1{
+      font-size: 4rem;
+    }
+    p{
+      font-size: 2rem;
+      word-wrap:break-word;
+      padding: 2rem 2rem 0 0;
+    }
+
+  }
 }
 
 #fixed_sign{
@@ -161,6 +175,7 @@ select {
 input[type="submit"]{
   margin: 0 auto;
   font-size: 2rem;
+  text-align: center;
 }
 .row-0{
     margin-left:0px;
@@ -178,11 +193,11 @@ input[type="submit"]{
     background-color: #EF8585;
     color: #fff;
     margin: 0 auto 2rem auto;
-    width: 50%;
+    width: 70%;
     text-align: center;
   }
   .content1{
-    font-size: 1rem;
+    font-size: 2rem;
     width: 70%;
     margin: 0 auto;
   }
@@ -201,4 +216,10 @@ input[type="submit"]{
   margin: 0 auto;
   text-align: center;
 
+}
+.regiForm{
+  width: 50%;
+}
+.field img{
+  width: 40%;
 }

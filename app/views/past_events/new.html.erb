@@ -1,7 +1,12 @@
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+<div class="form">
+
 <%= form_for(@past_event) do |f| %>
 
   <p>イベント名</p>
   <%= f.text_field :title, class: 'form-control' %>
+  <br />
   <p>実施日</p>
   <div class='input-group date datepicker'>
   <%= f.text_field :date, class: 'form-control', data: { :date_format => 'YYYY/MM/DD' } %>
@@ -40,3 +45,5 @@
 
   <%= f.submit '登録' %>
 <% end %>
+</div>
+</div>

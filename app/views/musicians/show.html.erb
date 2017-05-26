@@ -6,7 +6,7 @@
     <small class="point">応援ポイント:　<%= @performer.support %></small></h4>
   <dd>ジャンル：<%= @performer.jenre.name %></br>
   主な活動場所：<%= @performer.prefecture.name %></br></br>
-  <%= link_to "過去に出演したイベント", event_musicians_path(@performer.id) %>
+  <%= link_to "出演したイベント（#{@past_events.count}件）", event_musicians_path(@performer.id) %>
 </dd>
 </div>
 <br>
@@ -17,21 +17,25 @@
 
 <h3 class="sign1">自己紹介</h3>
 <p class="content1"><%= @performer.content %></p>
-
+<br>
+<br>
 <h3 class="sign1">動画</h3>
   <div class="row">
-    <p class="col-sm-offset-3 col-sm-6 col-xs-12">
-     <%= video_tag @performer.movie, width: "100%", autoplay: false, poster_skip_pipeline: true, controls: true %>
+    <p class="col-sm-offset-2 col-sm-8 col-xs-12">
+      
+     <%= video_tag @performer.movie.to_s.gsub(/\/images/, ""), width: "100%", autoplay: false, poster_skip_pipeline: true, controls: true %>
      </p>
   </div>
 
 <% if user_signed_in?%>
+<div id="wrap">
 <h3 class="sign1">オファーメッセージを送る</h3>
 <%= form_for(@request) do |f| %>
 <%= f.text_area :content, class: 'form-control' %>
 <%= f.hidden_field :performer_id, :value => @performer.id %>
 <%= f.submit '登録' %>
 <% end %>
+  </div>
 <% end %>
 
 

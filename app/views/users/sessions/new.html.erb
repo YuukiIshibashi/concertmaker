@@ -9,12 +9,14 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
   <br />
+  <br />
 
 
   <div class="field">
     <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+  <br />
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
@@ -22,6 +24,7 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+    <br />
     <br />
 
   <div class="actions">

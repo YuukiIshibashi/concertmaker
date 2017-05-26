@@ -6,6 +6,7 @@ class MusiciansController < ApplicationController
   def show
     @request = Request.new
     @performer = Performer.find(params[:id])
+    @past_events = PastEvent.where(performer_id: @performer.id)
 
   end
 
@@ -18,5 +19,10 @@ class MusiciansController < ApplicationController
       @performers = Performer.all
       @performers = @performers.where(prefecture_id: params[:prefecture_id]) if params[:prefecture_id].present?
       @performers = @performers.where(jenre_id: params[:jenre_id]) if params[:jenre_id].present?
+      @performers = @performers.order("support DESC")
+  end
+
+  def point
+    @performers = Performer.order("support DESC")
   end
 end

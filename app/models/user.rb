@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  validates :name, presence: true
+  validates :email, presence: true
+
   has_many :requests
   has_many :replies
   has_many :supports

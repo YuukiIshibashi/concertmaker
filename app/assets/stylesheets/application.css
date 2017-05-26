@@ -48,6 +48,10 @@
 #wrap{
   margin: 5%;
 }
+#wrap2{
+  margin: 5% 15% 0 15%;
+}
+
 .row{
   padding: 0;
 }

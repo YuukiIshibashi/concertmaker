@@ -46,6 +46,24 @@
   opacity: 0.8;
   padding: 1rem 2rem;
   margin: 0;
+  height: 8rem;
+  text-align: right;
+
+  strong{
+    font-size: 2rem;
+  }
+   small{
+     background-color: #595757;
+     font-size: 2rem;
+     padding: 1rem;
+     position: absolute;
+     left:5%;
+     color: #fff;
+     top: 0;
+     height: 7rem;
+     margin-top: 0.5rem 0 0.5rem 0;
+
+   }
 
 }
 .pointArea{

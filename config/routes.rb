@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :musicians, only: [:index, :show], shallow: true do
     collection do
       get :search
+      get :point
       get :event
     end
   end

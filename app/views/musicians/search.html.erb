@@ -4,26 +4,23 @@
 <div class="container">
 
 <h2>検索結果</h2>
+<%= link_to "もどる", musicians_path %>
 
-<ul class="row">
+<ul class="row row-0">
   <% @performers.each do |performer| %>
     <li  class="col-md-4 col-xs-12">
-      <div class="profileImg">
-        <%= performer_profile_img(performer) %>
+      <div class="performeList">
+        <%= link_to performer_profile_img(performer),musician_path(performer.id) %>
+        <p class="nameArea">
+          <strong><%= performer.name %></strong><br>
+          <%= performer.message %>
+          <small><%= performer.jenre.name %></small>
+        </p>
+        <p class="pointArea">
+          <%= performer.support %>
+        </p>
       </div>
-      <div class="profileName">
-        名前：<%= performer.name %>
-      </div>
-      <div class="profileName">
-        ジャンル：<%= performer.jenre.name %>
-      </div>
-      <p>一言メッセージ</p>
-      <p><%= performer.message %></p>
 
-      <%= performer.try(:content) %>
-
-
-      <%= link_to "詳細", musician_path(performer.id) %>
     </li>
 <% end %>
 </ul>

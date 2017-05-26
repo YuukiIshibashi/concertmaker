@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<p class = "sign"><%= image_tag '/image.png' %></p>
+<div id="wrap">
+
+<h2>パフォーマー登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -15,6 +18,8 @@
   </div>
   <br />
 
+  <section class="regiForm">
+
   <div class="field">
     <%= f.label :都道府県 %><br />
     <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name,  { prompt: "選択してください", class: "dropdown" } %>
@@ -25,10 +30,14 @@
     <%= f.label :ジャンル %><br />
     <%= f.collection_select :jenre_id, Jenre.all, :id, :name,  { prompt: "選択してください", class: "dropdown" } %>
   </div>
+</section>
+
   <br />
 
+
+
   <div class="field">
-    <%= f.label :一言メッセージ %><br />
+    <%= f.label :一言メッセージ（10文字以内） %><br />
     <%= f.text_field :message, autofocus: true %>
   </div>
   <br />
@@ -67,8 +76,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録" %>
   </div>
 <% end %>
 
 <%= render "performers/shared/links" %>
+
+</div>
