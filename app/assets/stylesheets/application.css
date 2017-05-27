@@ -51,10 +51,20 @@
 #wrap2{
   margin: 5% 15% 0 15%;
 }
-
-.row{
-  padding: 0;
+#wrap3{
+  margin: 5% 20% 0 20%;
+  text-align: center;
+  background-color: rgba(250,213,214,0.5);
+  padding: 5%;
 }
+#wrap4{
+  margin: 5% 20% 0 20%;
+  text-align: center;
+  background-color: rgba(195,222,152,0.5);
+  padding: 5%;
+}
+
+
 ul{
   padding: 0;
 }

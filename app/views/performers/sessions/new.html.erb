@@ -1,13 +1,16 @@
 <p class = "sign"><%= image_tag '/image.png' %></p>
-<div id="wrap">
+<div id="wrap4">
 
 <h2>パフォーマーログイン</h2>
+<br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :Eメールアドレス %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+  <br>
+  <br>
 
   <div class="field">
     <%= f.label :パスワード %><br />
@@ -20,6 +23,7 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+  <br>
 
   <div class="actions">
     <%= f.submit "ログイン" %>

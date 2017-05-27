@@ -23,6 +23,24 @@ class PastEventsController < ApplicationController
 		end
   end
 
+  def edit
+    @past_event = PastEvent.find(params[:id])
+  end
+
+  def update
+    @past_event = PastEvent.find(params[:id])
+    @past_event.update(past_event_params)
+    redirect_to past_event_path(@past_event.id)
+
+  end
+
+  def destroy
+    @past_event = PastEvent.find(params[:id])
+    @past_event.destroy
+    redirect_to performer_mypage_path(current_performer.id)
+
+  end
+
 
   private
 		def past_event_params

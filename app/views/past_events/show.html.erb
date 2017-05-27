@@ -24,16 +24,18 @@
  <br>
 
     <li class="row">
-    <p class="sign2">動画</p>
-    <p class="col-sm-offset-3 col-sm-6 col-xs-12">
-     <%= video_tag @past_event.movie, width: "100%", autoplay: false, poster_skip_pipeline: true, controls: true %>
+    <p class="sign2">動画で確認！</p>
+    <p class="col-sm-offset-2 col-sm-8 col-xs-12">
+     <%= video_tag @past_event.movie.to_s.gsub(/\/images/, ""), width: "100%", autoplay: false, poster_skip_pipeline: true, controls: true %>
     </p>
+  </li>
 
 
   <% if performer_signed_in? %>
   <div class="recrute">
   　　<% if @past_event.performer_id == current_performer.id %>
-     <p><%= link_to "このイベントを削除する", past_event_path(@past_event.id), method: :delete %></p>
+     <p><%= link_to "削除する", past_event_path(@past_event.id), method: :delete %></p>
+     <p><%= link_to "編集する", edit_past_event_path(@past_event.id) %></p>
    <% end %>
   </div>
   <% end %>
