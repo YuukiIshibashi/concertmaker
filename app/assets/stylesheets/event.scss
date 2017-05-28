@@ -28,4 +28,17 @@
 }
 .recrute{
   float: right;
+  p{
+    background-color: #595757;
+    float: left;;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    a{
+      color: #fff;
+    }
+    &:hover{
+      opacity: 0.5;
+    }
+  }
 }

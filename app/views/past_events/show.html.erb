@@ -34,8 +34,8 @@
   <% if performer_signed_in? %>
   <div class="recrute">
   　　<% if @past_event.performer_id == current_performer.id %>
-     <p><%= link_to "削除する", past_event_path(@past_event.id), method: :delete %></p>
-     <p><%= link_to "編集する", edit_past_event_path(@past_event.id) %></p>
+     <p><%= link_to "削除", past_event_path(@past_event.id), method: :delete %></p>
+     <p><%= link_to "編集", edit_past_event_path(@past_event.id) %></p>
    <% end %>
   </div>
   <% end %>

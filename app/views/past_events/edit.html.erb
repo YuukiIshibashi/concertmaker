@@ -35,6 +35,7 @@
   <br />
   <br />
   <p>画像など</p>
+  <%= image_tag @past_event.image if @past_event.image %>
   <%= f.file_field :image %>
   <%= f.hidden_field :image_cache %>
 

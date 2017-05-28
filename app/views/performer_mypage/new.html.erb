@@ -3,10 +3,9 @@
 <div class="container">
 
 <p><%= notice %></p>
+<p>応援コードを入力してください</p>
 
 <%= form_tag("/performer_mypage", method: "post" ) do %>
 <%= text_field_tag :uuid %>
 
 <% end %>
-
-<p><%= link_to "ooo", performer_mypage_index_path( uuid: 1) %></p>

@@ -65,7 +65,9 @@
            <%= f.submit "募集再開", class: "btn btn-large btn-primary" %>
       <% end %>
     <% end %>
-    <p><%= link_to "このイベントを削除する", event_path(@event.id), method: :delete %></p>
+    <br>
+    <p><%= link_to "削除", event_path(@event.id), method: :delete %></p>
+    <p><%= link_to "編集", edit_event_path(@event.id) %></p>
  <% end %>
  </div>
 <% end %>
